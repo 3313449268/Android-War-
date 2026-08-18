@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿生人1：战争</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- 标题画面 -->
+    <div id="title-screen" class="screen active">
+      <div class="title-content">
+        <div class="title-prefix">BIONIC HUMAN</div>
+        <h1 class="title-main">仿生人 I</h1>
+        <div class="title-sub">战 争</div>
+        <div class="title-line"></div>
+        <div class="title-version">v1.0 · 2072</div>
+        <div class="title-buttons">
+          <button id="btn-start" class="btn-primary">新游戏</button>
+          <button id="btn-continue" class="btn-secondary">继续</button>
+          <button id="btn-load-menu" class="btn-secondary">剧情流程图</button>
+        </div>
+        <div id="save-hint" class="save-hint" style="display:none"></div>
+        <div class="title-footer">剧情向互动游戏 · 多结局 · 自动存档</div>
+      </div>
+    </div>
+
+    <!-- 游戏主画面 -->
+    <div id="game-screen" class="screen">
+      <div id="scene-bg" class="scene-bg"></div>
+      <div id="scene-overlay" class="scene-overlay"></div>
+
+      <!-- 顶部信息栏 -->
+      <div id="top-bar" class="top-bar">
+        <div id="act-label" class="act-label"></div>
+        <div id="scene-label" class="scene-label"></div>
+        <div class="top-bar-actions">
+          <button id="btn-history" class="btn-icon" title="进度回顾">☰</button>
+          <button id="btn-save-quick" class="btn-icon" title="保存">💾</button>
+          <button id="btn-back-title" class="btn-icon" title="返回主页面">🏠</button>
+        </div>
+      </div>
+
+      <!-- 对话/叙述区域 -->
+      <div id="dialogue-area" class="dialogue-area">
+        <div id="speaker-name" class="speaker-name"></div>
+        <div id="dialogue-text" class="dialogue-text"></div>
+        <div id="click-hint" class="click-hint">▼ 点击继续</div>
+      </div>
+
+      <!-- 选项区域 -->
+      <div id="choices-area" class="choices-area"></div>
+
+      <!-- 游戏区域（小游戏） -->
+      <div id="game-area" class="game-area" style="display:none"></div>
+
+      <!-- 进度回顾面板 -->
+      <div id="history-panel" class="history-panel">
+        <div class="history-header">
+          <span class="history-title">进度回顾</span>
+          <button id="btn-history-close" class="btn-icon">✕</button>
+        </div>
+        <div class="history-section">
+          <div class="history-section-title">当前进度</div>
+          <div id="history-current" class="history-current"></div>
+        </div>
+        <div class="history-section">
+          <div class="history-section-title">已作出的选择</div>
+          <div id="history-choices" class="history-choices"></div>
+        </div>
+        <div class="history-section">
+          <div class="history-section-title">已通过章节</div>
+          <div id="history-chapters" class="history-chapters"></div>
+        </div>
+      </div>
+      <div id="history-overlay" class="history-overlay"></div>
+
+      <!-- 快进按钮 -->
+      <button id="btn-fast-forward" class="btn-fast-forward" title="快进">▶▶</button>
+    </div>
+
+    <!-- 结局画面 -->
+    <div id="ending-screen" class="screen">
+      <div class="ending-content">
+        <div id="ending-title" class="ending-title"></div>
+        <div id="ending-text" class="ending-text"></div>
+        <div id="ending-epilogue" class="ending-epilogue"></div>
+        <button id="btn-restart" class="btn-primary">重新开始</button>
+      </div>
+    </div>
+
+    <!-- 设置/存档浮层 -->
+    <div id="overlay" class="overlay" style="display:none">
+      <div class="overlay-content">
+        <h2>暂停</h2>
+        <button id="btn-resume" class="btn-primary">继续游戏</button>
+        <button id="btn-save" class="btn-secondary">保存进度</button>
+        <button id="btn-load" class="btn-secondary">读取存档</button>
+        <button id="btn-quit" class="btn-secondary">返回标题</button>
+      </div>
+    </div>
+
+    <!-- 存档列表浮层 -->
+    <div id="save-overlay" class="overlay" style="display:none">
+      <div class="overlay-content save-list">
+        <h2 id="save-overlay-title">读取存档</h2>
+        <div id="save-list" class="save-list-inner"></div>
+        <button id="btn-save-close" class="btn-secondary">关闭</button>
+      </div>
+    </div>
+
+    <!-- 剧情流程图画面 -->
+    <div id="flow-screen" class="screen">
+      <div class="flow-header">
+        <div class="flow-title">剧情流程图</div>
+        <div class="flow-sub">点亮的节点已体验过 · 点击可直接跳转体验其他剧情</div>
+        <button id="btn-flow-back" class="btn-secondary btn-flow-back">← 返回标题</button>
+      </div>
+      <div id="flow-body" class="flow-body"></div>
+    </div>
+  </div>
+
+  <script src="js/core.js?v=3"></script>
+  <script src="js/story.js?v=3"></script>
+  <script src="js/chameleon.js?v=3"></script>
+  <script src="js/bossFight.js?v=3"></script>
+  <script src="js/cardGame.js?v=3"></script>
+</body>
+</html>
